@@ -3,43 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hekvn</title>
     <link rel="stylesheet" href="./animate.css">
+    <link rel="stylesheet" href="./hover.css">
+    <link rel="stylesheet" href="./iconfont.css">
     <style>
         *{margin: 0; padding: 0;}
         ul{list-style: none;}
         img{display: block;}
-        a{text-decoration: none;}
+        /* a{text-decoration: none;} */
+        /* html{font-size: 26.666667vw;} */
+        /* body{background-color: #2980b9; font-size: 16px;} */
+        body{background-color: #2980b9;}
+        .animate__animated.animate__flipInX{--animate-duration: 2s; height: 45px; font-size: 30px;color: white; text-align: center; line-height: 45px;}
+        .iconfont.icon-xiangzuo{color: white; width: 4vw;height: 4vh; font-size: 45px;font-weight: bolder; cursor: pointer;display: flex;justify-content: center;align-items: center;z-index: 99;}
+        .iconfont.icon-xuanzeqixiayige{color: white; width: 4vw;height: 4vh; font-size: 45px;font-weight: bolder;cursor: pointer;display: flex;justify-content: center;align-items: center;}
+        .resume_body{width: 84vw;height: 80vh;text-align: center; display: flex;flex-direction: column; justify-content: center;align-items: center;}
+        .icon_hv{width: 8vw;height: 80vh;display: flex;justify-content: center;align-items: center;}
+        .prologue{color: white; margin-bottom: 20px;font-size: 50px;}
+        .introduce{color: white;font-size: 50px;}  
+        @media all and (max-width: 700px){
+            .animate__animated.animate__flipInX{font-size: 22px;}
+            .prologue{font-size: 22px;}
+            .iconfont.icon-xiangzuo{font-size: 28px;}
+            .iconfont.icon-xuanzeqixiayige{font-size: 28px;}
+            .introduce{font-size: 20px;}
+            /* 负页 */
+            .noShow{position: absolute; top: 40px;left: 70px;display: none;}
+            .toShow{position: absolute; top: 40px;left: 70px;display: block;} 
+            .toShow a{color: white;text-decoration: none;font-size: 6.5vw;margin: 0 10px;}
+            /* 基本信息 */
+            .about_left{display: flex;justify-content: center; margin-bottom: 15px;}
+            .about_left img{width: 150px; height: 200px;border: 2px solid white;}
+            .key_value{color: white; display: flex;justify-content: center;align-items: center;}
+            .info_module{display: flex;flex-direction: column;align-items: center;}
+            .key{font-size: 18px;}
+            .value{font-size: 22px;}
+            /* skill */
+            .language{display: flex;}
+            .language div{width: 20vw;display: flex;align-items: center;justify-content: center;}
+            .language div img{width: 14vw;height: 14vw;}
+            .pillars{display: flex;}
+            .pillars .pillar{width: 20vw;height: 50vh;margin-bottom: 10px; display: flex;justify-content: center;transform: rotateX(180deg);}
+            .css{width: 15vw; background-color: #0099FF;border: 2px solid white;animation-name: css;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .js{width: 15vw; background-color: orange;border: 2px solid white;animation-name: js;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .go{width: 15vw; background-color: #09acd7;border: 2px solid white;animation-name: go;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .database{width: 15vw; background-color: #FFCC33;border: 2px solid white; animation-name: database;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .percent{transform: rotateX(180deg);position: absolute;color: white;font-size: 18px;opacity: 0; animation-name: pshow; animation-duration: 1s;animation-fill-mode: forwards;}
+            .p_css{top: 41vh;animation-delay: 3.5s;}
+            .p_js{top: 35vh;animation-delay: 4s;}
+            .p_go{top: 35vh;animation-delay: 4.5s;}
+            .p_database{top: 32vh;animation-delay: 5s;}
+            @keyframes css {100% {height: 40vh;}75% {height: 30vh;}50% {height: 20vh;}25% {height: 10vh;}0% {height: 0vh;}}
+            @keyframes js {100% {height: 34vh;}75% {height: 25vh;}50% {height: 16vh;}25% {height: 8vh;}0% {height: 0vh;}}
+            @keyframes go {100% {height: 34vh;}75% {height: 25vh;}50% {height: 16vh;}25% {height: 8vh;}0% {height: 0vh;}}
+            @keyframes database {100% {height: 31vh;}75% {height: 23vh;}50% {height: 16vh;}25% {height: 8vh;}0% {height: 0vh;}}
+            @keyframes pshow {100%{opacity: 1;} 50%{opacity: .5;} 0%{opacity: 0;}}
+            /* 在校任职、获奖 */
+            .image{display: flex;justify-content: center;margin-top: 18px;}
+            .image p{height: 28vh;}
+            .img_engineer{width: 70vw;height: 28vh;border: 1px solid white;}
+            .img_award1{width: 60vw;height: 28vh;border: 1px solid white;}
+            .img_webmaster{width: 64vw;height: 28vh;border: 1px solid white;}
+            .img_representative{width: 40vw;height: 28vh;border: 1px solid white;}
+            .img_award2{display: flex;}
+            .img_award2 img{width: 38vw;height: 28vh;border: 1px solid white;}
+            .image p{color: white;font-size: 25px;display: flex;align-items: center;}
+            .database_engineer,.webmaster,.minister,.monitor,.representative,.award_two,.award_three,.award_one p{color: #ccc; font-size: 4vw;padding: 0 10px;}
+            .award_three p:active,.award_three p:hover,.award_three p:focus{color: white;}
+            .database_engineer{position: absolute;top: 15%;left: 50%;transform: translate(-50%);width: 60vw;
+                opacity: 0;animation-name: engineer;animation-duration: 1s;animation-fill-mode: forwards;}
+            .webmaster{position: absolute;top: 20%;left: 50%;transform: translate(-50%);width: 60vw;
+                opacity: 0;animation-name: webmaster;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 1s;}
+            .minister{position: absolute;top: 25%;left: 50%;transform: translate(-50%);width: 60vw;
+                opacity: 0;animation-name: minister;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 2s;}
+            .monitor{position: absolute;top: 30%;left: 50%;transform: translate(-50%);width: 60vw;
+                opacity: 0;animation-name: monitor;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 3s;}
+            .representative{position: absolute;top: 67%;left: 50%;transform: translate(-50%);width: 70vw;
+                opacity: 0;animation-name: representative;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 4s;}
+            .award_two{position: absolute;top: 72%;left: 50%;transform: translate(-50%);width: 70vw;
+                opacity: 0;animation-name: award_two;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 5s;}
+            .award_three{position: absolute;top: 77%;left: 50%;transform: translate(-50%);width: 70vw;
+                opacity: 0;animation-name: award_three;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 6s;}
+            /* .award_one{position: absolute;top: 82%;left: 50%;transform: translate(-50%);width: 70vw;
+                opacity: 0;animation-name: award_one;animation-duration: 1s;animation-fill-mode: forwards;animation-delay: 7s;} */
+            @keyframes engineer {0%{opacity: 0;}100%{opacity: 1;}}
+            @keyframes webmaster {0%{top: 15%;left: 50%;transform: translate(-50%);} 100%{top: 20%;left: 50%;transform: translate(-50%);opacity: 1;}}
+            @keyframes minister {0%{top: 20%;left: 50%;transform: translate(-50%);}100%{top: 25%;left: 50%;transform: translate(-50%);opacity: 1;}}
+            @keyframes monitor {0%{top: 25%;left: 50%;transform: translate(-50%);}100%{top: 30%;left: 50%;transform: translate(-50%);opacity: 1;}}
+            @keyframes representative {0%{top: 30%;left: 50%;transform: translate(-50%);}100%{top: 67%;left: 50%;transform: translate(-50%);opacity: 1;}}
+            @keyframes award_two {0%{top: 67%;left: 50%;transform: translate(-50%);}100%{top: 72%;left: 50%;transform: translate(-50%);opacity: 1;}}
+            @keyframes award_three {0%{top: 72%;left: 50%;transform: translate(-50%);}100%{top: 77%;left: 50%;transform: translate(-50%);opacity: 1;}}
+            /* @keyframes award_one {0%{top: 77%;left: 50%;transform: translate(-50%);}100%{top: 82%;left: 50%;transform: translate(-50%);opacity: 1;}} */
+            /* 项目经历1 */
+            .project_one h1{color: white;font-size: 5vw;}
+            .project_one h2{color: white;font-size: 4vw;padding-bottom: 4px;}
+            .project_one p{color: white;display: flex;justify-content: center;align-items: center;text-align: left;width: 75vw;height: 60vh;flex-direction: column;font-size: 4vw;}
+            .project_one p a{color: white;font-size: 3.5vw;}
+            .icon-xuanzeqishouqi,.icon-xuanzeqizhankai{color: white;font-size: 4.5vw;cursor: pointer;padding-top: 10px;}
+            .demo_img{width: 75vw;height: 60vh;display: flex;justify-content: center;align-items: center;}
+            .demo_img img{width: 60vw;height: 55vh;border: 1px solid white;}
+            /* 脚 */
+            footer{display: flex;align-items: center;}
+            footer img{width: 50px;height: 50px;margin: 0 15px; border-radius: 50%;border: 2px solid white;box-shadow: 2px 2px 8px white;}
+            footer a{color: white;display: flex;font-size: 2vw;}
+            footer a p{font-weight: bolder;}
+        }
+        @media all and (min-width: 701px){
+            /* 负页 */
+            .noShow{position: absolute;top: 40px;left: 100px;display: none;}
+            .toShow{position: absolute;top: 40px;left: 100px;display: block;}
+            .toShow a{text-decoration: none;color: white;font-size: 30px;margin: 0 20px;}
+            /* 基本信息 */
+            .about{display: flex; margin: 0 70px;}
+            .about_left img{width: 15vw; height: 19vw;border: 2px solid white;cursor: pointer;}
+            .about_right{margin-left: 40px;}
+            .info_module{display: flex;}
+            .info_module div .key{color: white; font-size: 25px;}
+            .info_module div .value{color: white;font-size: 30px;}
+            .info_module div{width: 400px; text-align: left;}
+            .key_value{flex: 1;padding-top: 30px; display: flex;}
+            /* skill */
+            .language{display: flex;}
+            .language div{width: 210px;display: flex;align-items: center;justify-content: center;}
+            .language div img{width: 60px;height: 60px;}
+            .pillars{display: flex;}
+            .pillars .pillar{width: 210px;height: 500px;margin-bottom: 20px; display: flex;justify-content: center;transform: rotateX(180deg);}
+            .css{width: 100px; background-color: #0099FF;border: 2px solid white;animation-name: css;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .js{width: 100px; background-color: orange;border: 2px solid white;animation-name: js;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .go{width: 100px; background-color: #09acd7;border: 2px solid white;animation-name: go;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .database{width: 100px; background-color: #FFCC33;border: 2px solid white; animation-name: database;
+                animation-duration: 3s;animation-iteration-count: 1;animation-fill-mode: forwards;
+                animation-timing-function: linear;}
+            .percent{transform: rotateX(180deg);position: absolute;color: white;font-size: 28px;opacity: 0; animation-name: pshow; animation-duration: 1s;animation-fill-mode: forwards;}
+            .p_css{top: 410px;animation-delay: 3.5s;}
+            .p_js{top: 350px;animation-delay: 4s;}
+            .p_go{top: 350px;animation-delay: 4.5s;}
+            .p_database{top: 320px;animation-delay: 5s;}
+            @keyframes css {100% {height: 400px;}75% {height: 300px;}50% {height: 200px;}25% {height: 100px;}0% {height: 0px;}}
+            @keyframes js {100% {height: 340px;}75% {height: 250px;}50% {height: 160px;}25% {height: 80px;}0% {height: 0px;}}
+            @keyframes go {100% {height: 340px;}75% {height: 250px;}50% {height: 160px;}25% {height: 80px;}0% {height: 0px;}}
+            @keyframes database {100% {height: 310px;}75% {height: 230px;}50% {height: 160px;}25% {height: 80px;}0% {height: 0px;}}
+            @keyframes pshow {100%{opacity: 1;} 50%{opacity: .5;} 0%{opacity: 0;}}
+            /* 在校任职、获奖 */
+            .database_engineer,.webmaster,.minister,.monitor,.representative,.award_two,.award_three p{color: #ccc; font-size: 25px;padding: 0 10px;}
+            .database_engineer,.webmaster,.minister,.monitor,.representative,.award_two,.award_three,.award_one{
+                margin: 20px auto; cursor: pointer;position: absolute;}
+            .award_three p:active,.award_three p:hover,.award_three p:focus{color: white;}
+            .database_engineer{top: 120px;left: auto;transform: translate(-50%);}
+            .webmaster{top: 35%; left: 12%;animation-name: webmaster;animation-duration: 1s;}
+            .minister{top: 35%;right: 12%;opacity: 0; animation-name: minister;animation-duration: 1s;animation-delay: 1s;animation-fill-mode: forwards;}
+            .award_two{top: 50%;left: 12%;opacity: 0;animation: award_two;animation-duration: 1s;animation-delay: 2s;animation-fill-mode: forwards;}
+            .award_three{top: 50%;right: 12%;opacity: 0;animation-name: award_three;animation-duration: 1s;animation-delay: 3s;animation-fill-mode: forwards;}
+            .monitor{top: 65%;left: 30%;opacity: 0;animation-name: monitor;animation-duration: 1s;animation-delay: 4s;animation-fill-mode: forwards;}
+            .representative{top: 65%;right: 20%;opacity: 0;animation-name: representative;animation-duration: 1s;animation-delay: 5s;animation-fill-mode: forwards;}
+            /* .award_one p{color: #ccc;font-size: 25px;padding: 0 10px;} */
+            /* .award_one{top: 70%;left: auto;transform: translate(-50%);} */
+            .img_engineer{width: 330px;height: 250px;border: 1px solid white;}
+            .img_award1{width: 330px;height: 250px;border: 1px solid white;}
+            .img_webmaster{width: 330px;height: 250px;border: 1px solid white;}
+            .img_representative{width: 250px;height: 300px;border: 1px solid white;}
+            .img_award2{display: flex;}
+            .img_award2 img{width: 200px;height: 220px;border: 1px solid white;}
+            .image p{color: white;font-size: 25px;}
+            @keyframes webmaster {0%{top: 120px;left: 50%;transform: translate(-50%);opacity: 0;}50%{top: 120px;left: 12%;opacity: 1;} 100%{top: 35%;left: 12%;opacity: 1;}}
+            @keyframes minister { 0%{top: 120px;right: 30%;transform: translate(-50%);}50%{top: 120px;right: 12%;opacity: 1;}100%{top: 35%;right: 12%;opacity: 1;}}
+            @keyframes award_two {0%{top: 35%;left: 12%;}100%{top: 50%;left: 12%;opacity: 1;}}
+            @keyframes award_three {0%{top: 35%;right: 12%;}100%{top: 50%;right: 12%;opacity: 1;}}
+            @keyframes monitor {0%{top: 50%;left: 12%;}50%{top: 65%;left: 12%;opacity: 1;}100%{top: 65%;left: 30%;opacity: 1;}}
+            @keyframes representative {0%{top: 50%;right: 12%;}50%{top: 65%;right: 12%;opacity: 1;}100%{top: 65%;right: 20%;opacity: 1;}}
+            /* 项目经历 远程医疗小程序 */
+            .project_one h1{color: white;padding-bottom: 10px;}
+            .project_one h2{color: white;font-size: 20px;padding-bottom: 6px;}
+            .project_one p{width: 600px;height: 500px;color: white;display: flex;justify-content: center;align-items: center;text-align: left;flex-direction: column;}
+            .project_one p a{color: white;font-size: 25px;}
+            .icon-xuanzeqishouqi,.icon-xuanzeqizhankai{color: white;font-size: 25px;cursor: pointer;}
+            .demo_img{width: 600px;height: 500px;display: flex;justify-content: center;align-items: center;}
+            .demo_img img{width: 280px;height: 460px;border: 1px solid white;}
+            /* 脚 */
+            footer{display: flex;align-items: center;}
+            footer img{width: 60px;height: 60px;margin: 0 20px; border-radius: 50%;border: 2px solid white;box-shadow: 3px 3px 10px white;}
+            footer a{color: white;display: flex;}
+            footer a p{font-weight: bolder;}
+        }
     </style>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <div class="index" style="text-align: center;"> 
-        <!-- 背景 -->
-        <div style="position: relative; z-index: -1;">
-            <!-- <div style="position: absolute; top: 30px; left: 190px;">
-                <img src="./image/logo-light.svg" alt="">
-            </div> -->
-            <div>
-                <img src="./image/header-illustration-light.svg" alt="">
+    <header class="animate__animated animate__flipInX">HeKvn</header>
+    <!-- 菜单(负页) -->
+    <section id="menu" class="meun_module">
+        <transition name="caidan-classes-transition" enter-active-class="animate__animated animate__bounceIn animate__delay-1s">
+            <div class="iconfont icon-caidan" style="color: white;width: 35px;height: 35px; font-size: 30px;
+            cursor: pointer;position: absolute;top: 40px;left: 25px; " @click="changeIsShow" v-show="isShow"></div>
+        </transition>
+        <transition name="guanbi-classes-transition" enter-active-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
+            <div 
+            style="width: 35px;height: 35px; cursor: pointer; color: white; font-size: 30px;
+             position: absolute;top: 40px;left: 25px;" class="iconfont icon-guanbi"
+            v-show="!isShow" @click="changeIsShow"></div>
+        </transition>
+        <!-- 负页 -->
+        <div :class="isShow?'noShow':'toShow'">
+            <a href="https://github.com/HeKvn" target="_blank" class="iconfont icon-github"></a>
+            <a href="https://twitter.com/Hekvn1" target="_blank" class="iconfont icon-tuitetwitter44"></a>
+            <a href="https://www.zhihu.com/people/hkzhu" target="_blank" class="iconfont icon-zhihu"></a>
+            <a href="https://weibo.com/p/1005052264584871/home?from=page_100505&mod=TAB#place" target="_blank" class="iconfont icon-weibo"></a>
+            <a href="https://web.telegram.org/#/im?p=@HeKvn" target="_blank" class="iconfont icon-telegram"></a>
+        </div>
+    </section>
+    <!-- 展示部分 -->
+    <section id="resume" style="display: flex; margin: 13px 0;">
+        <div class="icon_hv" @click="changeShow(-1)">
+            <div class="iconfont icon-xiangzuo hvr-bob" v-show="show!=0" ></div>
+        </div>
+        <div class="resume_body">
+            <!-- 开场 -->
+            <p class="prologue animate__animated animate__slideInDown" v-show="show===0">人生如逆旅，我亦是行人</p>
+            <p class="prologue animate__animated animate__slideInUp" v-show="show===0">你好！我叫贺昆</p>
+            <!-- about -->
+            <div class="about" v-show="show===1">
+                <!-- <p class="introduce animate__animated animate__backInLeft">自我介绍</p> -->
+                <!-- <transition name="about" enter-active-class="animate__animated animate__backInLeft" leave-active-class="animate__animated animate__bounceOutRight">
+                    <p class="introduce" v-show="show===1">自我介绍</p>
+                </transition> -->
+                <!-- 照片 -->
+                <div class="about_left animate__animated animate__fadeInLeft">
+                    <img class="hvr-grow-shadow" src="./image/me.JPG" alt="">
+                </div>
+                <!-- 其他基本信息 -->
+                <div class="about_right">
+                    <div class="info_module">
+                        <div class="key_value">
+                            <!-- span标签加动画 样式display:flex -->
+                            <span class="key animate__animated animate__fadeInBottomLeft">{{key_value[0]}}</span>
+                            <span class="value animate__animated animate__fadeInBottomRight">{{key_value[1]}}</span>
+                        </div>
+                        <div class="key_value">
+                            <span class="key animate__animated animate__fadeInTopRight">{{key_value[2]}}</span>
+                            <span class="value animate__animated animate__fadeInTopLeft">{{key_value[3]}}</span>
+                        </div>
+                    </div>
+                    <div class="info_module">
+                        <div class="key_value">
+                            <span class="key animate__animated animate__fadeInLeftBig">{{key_value[4]}}</span>
+                            <span class="value animate__animated animate__fadeInRightBig">{{key_value[5]}}</span>
+                        </div>
+                        <div class="key_value">
+                            <span class="key animate__animated animate__lightSpeedInLeft">{{key_value[6]}}</span>
+                            <span class="value animate__animated animate__lightSpeedInRight">{{key_value[7]}}</span>
+                        </div>
+                    </div>
+                    <div class="info_module">
+                        <div class="key_value">
+                            <span class="key animate__animated animate__backInDown">{{key_value[8]}}</span>
+                            <span class="value animate__animated animate__flip">{{key_value[9]}}</span>
+                        </div>
+                        <div class="key_value">
+                            <span class="key animate__animated animate__slideInUp">{{key_value[10]}}</span>
+                            <span class="value animate__animated animate__jackInTheBox">{{key_value[11]}}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- <div style="float: right; position: relative; bottom: 200px;" >
-                <img src="./image/hero-media-illustration-light.svg" alt="">
-            </div> -->
-            <!-- <div style="position: absolute; bottom: 500px;">
-                <img src="./image/features-illustration-light.svg" alt="">
-            </div> -->
-            <div style="position: absolute; top: 600px;">
-                <img src="./image/cta-illustration-light.svg" alt="">
+            <!-- skill -->
+            <div class="skill" v-show="show===2">
+                <!-- 柱状图 -->
+                <div class="pillars">
+                    <!-- 1 -->
+                    <div class="pillar"><div class="percent p_css">90%</div><div class="css"></div></div>
+                    <!-- 2 -->
+                    <div class="pillar"><div class="percent p_js">80%</div><div class="js"></div></div>
+                    <!-- 3 -->
+                    <div class="pillar"><div class="percent p_go">80%</div><div class="go"></div></div>
+                    <!-- 4 -->
+                    <div class="pillar"><div class="percent p_database">75%</div><div class="database"></div></div>
+                </div>
+                <!-- 语言 -->
+                <div class="language">
+                    <div><img src="./image/css.png" alt=""></div>
+                    <div><img src="./image/javascript.png" alt=""></div>
+                    <div><img src="./image/go_gopher.png" alt=""></div>
+                    <div><img src="./image/database.png" alt=""></div>
+                </div>
+            </div>
+            <!-- 职位、获奖 -->
+            <div class="post_award" v-show="show===3">
+                <!-- 1 -->
+                <div class="database_engineer hvr-sweep-to-right" @click="showImage(1)"><p>{{post_award[0]}}</p></div>
+                <div class="webmaster hvr-sweep-to-top" @click="showImage(2)"><p>{{post_award[1]}}</p></div>
+                <div class="minister hvr-sweep-to-left" @click="showImage(3)"><p>{{post_award[2]}}</p></div>
+                <div class="monitor hvr-sweep-to-bottom" @click="showImage(4)"><p>{{post_award[3]}}</p></div>
+                <div class="representative hvr-bounce-to-right" @click="showImage(5)"><p>{{post_award[4]}}</p></div>
+                <!-- 2 -->
+                <div class="award_two hvr-bounce-to-top" @click="showImage(6)"><p>{{post_award[5]}}</p></div>
+                <div class="award_three hvr-bounce-to-left" @click="showImage(7)"><p>{{post_award[6]}}</p></div>
+                <!-- <div class="award_one hvr-bounce-to-left" @click="showImage(8)"><p>{{post_award[7]}}</p></div> -->
+                <!-- 3 -->
+                <div class="image">
+                    <img class="img_engineer animate__animated animate__backInUp" src="./image/engineer.png" alt="" v-show="imgShow===1">
+                    <img class="img_webmaster animate__animated animate__zoomIn" src="./image/webmaster.png" alt="" v-show="imgShow===2">
+                    <p v-show="imgShow===3||imgShow===4||imgShow===8">暂无图片</p>
+                    <img class="img_representative animate__animated animate__fadeInTopRight" src="./image/representative.png" alt="" v-show="imgShow===5">
+                    <img class="img_award1 animate__animated animate__rollIn" src="./image/awardTwo.png" alt="" v-show="imgShow===6">
+                    <div class="img_award2" v-show="imgShow===7">
+                        <img class="animate__animated animate__slideInLeft" src="./image/awardOne1.jpg" alt="">
+                        <img class="animate__animated animate__slideInRight" src="./image/awardOne2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- 项目经历1 -->
+            <div class="project_one" v-show="show===4">
+                <h1>项目经历</h1>
+                <h2 class="animate__animated animate__zoomInRight">远程医疗小程序</h2>
+                <!-- 上一张 -->
+                <div class="iconfont icon-xuanzeqishouqi" @click="itemChange(-1)" v-show="project_item!=0"></div>
+                <!-- 文字介绍 -->
+                <p v-show="project_item===0" class="animate__animated animate__fadeIn animate__delay-1s">一个以即使通讯为主的远程医疗小程序。<br>
+                    拥有“首页”病人病史、实时监测、专家会诊、消息查看、个人信息。<br> <br>
+                    功能实现：有利用正则表达式对病人病史进行模糊检索功能，与微信群聊一样的聊天室、当一方进行预约会议并提交后会进行的通过服务号的
+                    预约消息推送，创建会议、分享病例等等... <br> <br>
+                    项目已开源，点击下方“箭头”按钮查看图片。<br>
+                    GitHub项目地址，传送门(点击) ⬇️ <br> <br> <a href="https://github.com/HeKvn/wechat-weapp-hope" target="_blank">远程医疗小程序</a>
+                </p>
+                <!-- 图片展示 -->
+                <div class="demo_img" v-show="project_item===1"><img src="http://image2.hekvn.top/resume_hope1.PNG" alt=""></div>
+                <div class="demo_img" v-show="project_item===2"><img src="http://image2.hekvn.top/resume_hope2.PNG" alt=""></div>
+                <div class="demo_img" v-show="project_item===3"><img src="http://image2.hekvn.top/resume_hope3.PNG" alt=""></div>
+                <div class="demo_img" v-show="project_item===4"><img src="http://image2.hekvn.top/resume_hope4.PNG" alt=""></div>
+                <div class="demo_img" v-show="project_item===5"><img src="http://image2.hekvn.top/resume_hope5.PNG" alt=""></div>
+                <div class="demo_img" v-show="project_item===6"><img src="http://image2.hekvn.top/resume_hope6.PNG" alt=""></div>
+                <!-- 下一张 -->
+                <div class="iconfont icon-xuanzeqizhankai" @click="itemChange(1)" v-show="project_item!=6"></div>
             </div>
         </div>
-        <!-- 开场介绍 -->
-        <!-- <div style="width: 500px; position: absolute;left: 500px; top: 500px;">
-            <div>
-                <h1>人生如逆旅，我亦是行人。</h1>
-                <h1>你好，我叫贺昆！</h1>
-            </div>
-        </div> -->
-    </div>
+        <div class="icon_hv" @click="changeShow(1)">
+            <div class="iconfont icon-xuanzeqixiayige hvr-bob"></div>
+        </div>
+    </section>
+    <!-- 脚 -->
+    <footer>
+        <img src="http://image2.hekvn.top/mi.jpg" alt="">
+        <a href="https://twitter.com/Hekvn1" target="_blank">Created by&nbsp;<p>@HeKvn</p></a>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
