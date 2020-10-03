@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
     <title>Hekvn</title>
     <link rel="stylesheet" href="./animate.css">
     <link rel="stylesheet" href="./hover.css">
@@ -19,7 +19,7 @@
         .iconfont.icon-xiangzuo{color: white; width: 4vw;height: 4vh; font-size: 45px;font-weight: bolder; cursor: pointer;display: flex;justify-content: center;align-items: center;z-index: 99;}
         .iconfont.icon-xuanzeqixiayige{color: white; width: 4vw;height: 4vh; font-size: 45px;font-weight: bolder;cursor: pointer;display: flex;justify-content: center;align-items: center;}
         .resume_body{width: 84vw;height: 80vh;text-align: center; display: flex;flex-direction: column; justify-content: center;align-items: center;}
-        .icon_hv{width: 8vw;height: 80vh;display: flex;justify-content: center;align-items: center;}
+        .icon_hv{width: 8vw;height: 80vh;display: flex;justify-content: center;align-items: center;margin: 0 2px;}
         .prologue{color: white; margin-bottom: 20px;font-size: 50px;}
         .introduce{color: white;font-size: 50px;}  
         @media all and (max-width: 700px){
@@ -111,10 +111,14 @@
             .icon-xuanzeqishouqi,.icon-xuanzeqizhankai{color: white;font-size: 4.5vw;cursor: pointer;padding-top: 10px;}
             .demo_img{width: 75vw;height: 60vh;display: flex;justify-content: center;align-items: center;}
             .demo_img img{width: 60vw;height: 55vh;border: 1px solid white;}
+            .demo2_img{width: 75vw;height: 60vh;display: flex;justify-content: center;align-items: center;}
+            .demo2_img img{width: 65vw;height: 30vh;border: 1px solid white;}
+            /* more */
+            .more{color: white;font-size: 5vw;font-weight: bolder;}
             /* 脚 */
             footer{display: flex;align-items: center;}
             footer img{width: 50px;height: 50px;margin: 0 15px; border-radius: 50%;border: 2px solid white;box-shadow: 2px 2px 8px white;}
-            footer a{color: white;display: flex;font-size: 2vw;}
+            footer a{color: white;display: flex;font-size: 4vw;}
             footer a p{font-weight: bolder;}
         }
         @media all and (min-width: 701px){
@@ -194,6 +198,10 @@
             .icon-xuanzeqishouqi,.icon-xuanzeqizhankai{color: white;font-size: 25px;cursor: pointer;}
             .demo_img{width: 600px;height: 500px;display: flex;justify-content: center;align-items: center;}
             .demo_img img{width: 280px;height: 460px;border: 1px solid white;}
+            .demo2_img{width: 600px;height: 500px;display: flex;justify-content: center;align-items: center;}
+            .demo2_img img{width: 550px;height: 460px;border: 1px solid white;}
+            /* more */
+            .more{color: white;font-size: 35px;font-weight: bolder;}
             /* 脚 */
             footer{display: flex;align-items: center;}
             footer img{width: 60px;height: 60px;margin: 0 20px; border-radius: 50%;border: 2px solid white;box-shadow: 3px 3px 10px white;}
@@ -220,8 +228,6 @@
         <div :class="isShow?'noShow':'toShow'">
             <a href="https://github.com/HeKvn" target="_blank" class="iconfont icon-github"></a>
             <a href="https://twitter.com/Hekvn1" target="_blank" class="iconfont icon-tuitetwitter44"></a>
-            <a href="https://www.zhihu.com/people/hkzhu" target="_blank" class="iconfont icon-zhihu"></a>
-            <a href="https://weibo.com/p/1005052264584871/home?from=page_100505&mod=TAB#place" target="_blank" class="iconfont icon-weibo"></a>
             <a href="https://web.telegram.org/#/im?p=@HeKvn" target="_blank" class="iconfont icon-telegram"></a>
         </div>
     </section>
@@ -349,15 +355,43 @@
                 <!-- 下一张 -->
                 <div class="iconfont icon-xuanzeqizhankai" @click="itemChange(1)" v-show="project_item!=6"></div>
             </div>
+            <!-- 项目经历2 -->
+            <div class="project_one" v-show="show===5">
+                <h1>项目经历</h1>
+                <h2 class="animate__animated animate__zoomInRight">医院实习分配系统</h2>
+                <!-- 上一张 -->
+                <div class="iconfont icon-xuanzeqishouqi" @click="itemChange(-1)" v-show="project_item!=0"></div>
+                <!-- 文字介绍 -->
+                <p v-show="project_item===0" class="animate__animated animate__fadeIn animate__delay-1s">一个基于.net的桌面应用<br>
+                    分为教师端和学生端，采取三层架构，对数据库操作进行了封装<br> <br>
+                    功能实现：教师端具有查看志愿、自主分配、学生填报情况与学生信息等功能；学生端具有志愿填报，查看志愿，查看医院
+                    等功能。 <br> <br>
+                    项目已开源，点击下方“箭头”按钮查看图片。<br>
+                    GitHub项目地址，传送门(点击) ⬇️ <br> <br> <a href="https://github.com/HeKvn/Hk_Hsp_MatchSystem" target="_blank">医院实习分配系统</a>
+                </p>
+                <!-- 图片展示 -->
+                <div class="demo2_img" v-show="project_item===1"><img src="http://image2.hekvn.top/hsp1-min.png" alt=""></div>
+                <div class="demo2_img" v-show="project_item===2"><img src="http://image2.hekvn.top/hsp2-min.png" alt=""></div>
+                <div class="demo2_img" v-show="project_item===3"><img src="http://image2.hekvn.top/hsp3-min.png" alt=""></div>
+                <div class="demo2_img" v-show="project_item===4"><img src="http://image2.hekvn.top/hsp4-min.png" alt=""></div>
+                <div class="demo2_img" v-show="project_item===5"><img src="http://image2.hekvn.top/hsp5-min.png" alt=""></div>
+                <div class="demo2_img" v-show="project_item===6"><img src="http://image2.hekvn.top/hsp5-min.png" alt=""></div>
+                <!-- 下一张 -->
+                <div class="iconfont icon-xuanzeqizhankai" @click="itemChange(1)" v-show="project_item!=6"></div>
+            </div>
+            <!-- more -->
+            <div class="more animate__animated animate__pulse" v-show="show===6">
+                <p>更多项目请点击左上方菜单里的GitHub图标，包括但不限于这个简历网站、天气查询、小程序等...</p>
+            </div>
         </div>
         <div class="icon_hv" @click="changeShow(1)">
-            <div class="iconfont icon-xuanzeqixiayige hvr-bob"></div>
+            <div class="iconfont icon-xuanzeqixiayige hvr-bob" v-show="show!=6"></div>
         </div>
     </section>
     <!-- 脚 -->
     <footer>
         <img src="http://image2.hekvn.top/mi.jpg" alt="">
-        <a href="https://twitter.com/Hekvn1" target="_blank">Created by&nbsp;<p>@HeKvn</p></a>
+        <a href="https://hekvn.top" target="_blank">Created by&nbsp;<p>@HeKvn</p></a>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="./index.js"></script>
