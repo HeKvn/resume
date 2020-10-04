@@ -15,6 +15,7 @@
         /* html{font-size: 26.666667vw;} */
         /* body{background-color: #2980b9; font-size: 16px;} */
         body{background-color: #2980b9;}
+        [v-cloak] {display: none;}
         .animate__animated.animate__flipInX{--animate-duration: 2s; height: 45px; font-size: 30px;color: white; text-align: center; line-height: 45px;}
         .iconfont.icon-xiangzuo{color: white; width: 4vw;height: 4vh; font-size: 45px;font-weight: bolder; cursor: pointer;display: flex;justify-content: center;align-items: center;z-index: 99;}
         .iconfont.icon-xuanzeqixiayige{color: white; width: 4vw;height: 4vh; font-size: 45px;font-weight: bolder;cursor: pointer;display: flex;justify-content: center;align-items: center;}
@@ -236,7 +237,7 @@
         <div class="icon_hv" @click="changeShow(-1)">
             <div class="iconfont icon-xiangzuo hvr-bob" v-show="show!=0" ></div>
         </div>
-        <div class="resume_body">
+        <div class="resume_body" v-cloak>
             <!-- 开场 -->
             <p class="prologue animate__animated animate__slideInDown" v-show="show===0">人生如逆旅，我亦是行人</p>
             <p class="prologue animate__animated animate__slideInUp" v-show="show===0">你好！我叫贺昆</p>
@@ -375,7 +376,7 @@
                 <div class="demo2_img" v-show="project_item===3"><img src="http://image2.hekvn.top/hsp3-min.png" alt=""></div>
                 <div class="demo2_img" v-show="project_item===4"><img src="http://image2.hekvn.top/hsp4-min.png" alt=""></div>
                 <div class="demo2_img" v-show="project_item===5"><img src="http://image2.hekvn.top/hsp5-min.png" alt=""></div>
-                <div class="demo2_img" v-show="project_item===6"><img src="http://image2.hekvn.top/hsp5-min.png" alt=""></div>
+                <div class="demo2_img" v-show="project_item===6"><img src="http://image2.hekvn.top/hsp6-min.png" alt=""></div>
                 <!-- 下一张 -->
                 <div class="iconfont icon-xuanzeqizhankai" @click="itemChange(1)" v-show="project_item!=6"></div>
             </div>
